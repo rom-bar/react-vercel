@@ -31,7 +31,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	defer db.Close()
-
+	db.AutoMigrate(&student{})
 	students := []student{}
 
 	db.Find(&students)
