@@ -23,6 +23,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	dbPassword := os.Getenv("MYSQL_PASSWORD")
 	dbName := os.Getenv("MYSQL_DATABASE")
 	mysqlDSN := fmt.Sprintf("%v:%v@tcp(%v:3306)/%v?charset=utf8&parseTime=True&loc=Local", dbUser, dbPassword, dbHost, dbName)
+	fmt.Println("MysqlDSN ", mysqlDSN)
 	db, err := gorm.Open("mysql", mysqlDSN)
 
 	if err != nil {
