@@ -26,7 +26,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	db, err := gorm.Open("mysql", mysqlDSN)
 
 	if err != nil {
-		fmt.Fprintf(w, "Failed to connect DB")
+		fmt.Fprintf(w, fmt.Sprintf("Failed to connect DB , %v", err))
 	}
 
 	defer db.Close()
